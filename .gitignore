@@ -1,7 +1,9 @@
-git.sh
+/git.sh
 /EngineType.class
 /NormalVehicle.class
 /SportsVehicle.class
 /Vehicle.class
 /Showroom.class
 /HeavyVehicle.class
+/.classpath
+/.project
