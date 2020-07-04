@@ -2,48 +2,50 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Showroom{
-	int visitorcount=30;
+	static int visitorCount=30;
 	static ArrayList<Vehicle> vehicleList= new ArrayList<Vehicle>();
 	static Scanner sc=new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		print("\t WELCOME to the Vehicle Showroom \n You can \n");
 		while(true) {
+			print("You can expect "+visitorCount+" visitors");
 
-		print("\t1.Add vehicles\n"
+			print("\t1.Add vehicles\n"
 				+ "\t2.Remove vehicle\n"
 				+ "\t3.See list of vehicles with details\n");
-		int response=sc.nextInt();
-		switch (response) {
-		case 1:
-			addVehicle();
-			break;
-		case 2:
-			removeVehicle();
-			break;
-		case 3:
-			showVehicleList();
-			break;
-		default:
-			break;
-		}
+			int response=sc.nextInt();
+			switch (response) {
+			case 1:
+				addVehicle();
+				break;
+			case 2:
+				removeVehicle();
+				break;
+			case 3:
+				showVehicleList();
+				break;
+			default:
+				break;
+			}
 		}
 	}
 	static void showVehicleList() {
 		for (Vehicle vehicle : vehicleList) {
-			print(vehicle.vehicleType+" vehicle\n"
-				+ "\tModel: "+vehicle.model+"\n"
-				+ "\tEngineType: "+vehicle.engineType+"\n"
-				+ "\tEnginePower: "+vehicle.enginePower+"\n"
-				+ "\tTireSeize: "+vehicle.tireSize
-				);
+			print(vehicle.getVehicleType()+" vehicle\n"
+				+ "\tModel: "+vehicle.getModel()+"\n"
+				+ "\tEngineType: "+vehicle.getEngineType()+"\n"
+				+ "\tEnginePower: "+vehicle.getEnginePower()+"\n"
+				+ "\tTireSeize: "+vehicle.getTireSize());
 			if(vehicle instanceof SportsVehicle){
-				print("\tTurbo:"+((SportsVehicle) vehicle).getTurbo()+"\n");
+				print("\tTurbo:"+((SportsVehicle) vehicle).getTurbo());
 			}
 			if(vehicle instanceof HeavyVehicle){
-				print("\tWeight:"+((HeavyVehicle)vehicle).getWeight()+"\n");
+				print("\tWeight:"+((HeavyVehicle)vehicle).getWeight());
 			}	
+			print("\tVehicle ID: "+vehicle.getuID()+"\n");
 		}
+		print("You can expect "+visitorCount+" visitors");
 	}
 	static void addVehicle(){
 		print("\t\tWhich type of vehicle you want to add\n");
@@ -85,7 +87,7 @@ public class Showroom{
 			engineType=EngineType.GAS;
 			break;
 		case 3:
-			engineType=EngineType.DIESEl;
+			engineType=EngineType.DIESEL;
 			break;
 		default:
 			break;
@@ -107,6 +109,7 @@ public class Showroom{
 		print("Turbo: ");
 		int turbo=sc.nextInt();
 		SportsVehicle vehicle=new SportsVehicle(model,enginePower,tireSize,turbo);
+		visitorCount+=20;
 		return vehicle;
 		
 	}
@@ -130,6 +133,8 @@ public class Showroom{
 	static void print(Object o) {
 		System.out.println(o);
 	}
+	
+ 
 }
 /*
 1

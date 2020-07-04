@@ -9,13 +9,10 @@ class SportsVehicle extends Vehicle{
 		this.turbo = turbo;
 	}
 	
-	public SportsVehicle(String model,int enginepower, int tireSize,int turbo) {
-		this.vehicleType="SPORTS";
-		this.model=model;
-		this.enginePower=enginepower;
-		this.tireSize=tireSize;
+	public SportsVehicle(String model,int enginePower, int tireSize,int turbo) {
+		super(VehicleType.SPORTS, model, EngineType.OIL, enginePower, tireSize);
 		this.turbo=turbo;
-		this.engineType=EngineType.OIL;
+		
 	}
 	
 }

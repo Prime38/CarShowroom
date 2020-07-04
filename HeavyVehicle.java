@@ -8,12 +8,9 @@ public class HeavyVehicle extends Vehicle{
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	public HeavyVehicle(String model,int enginepower, int tireSize,int weight) {
-		this.vehicleType="HEAVY";
-		this.model=model;
-		this.enginePower=enginepower;
-		this.tireSize=tireSize;
+	public HeavyVehicle(String model,int enginePower, int tireSize,int weight) {
+		super(VehicleType.HEAVY, model, EngineType.DIESEl, enginePower, tireSize);
 		this.weight=weight;
-		this.engineType=EngineType.DIESEl;
+		
 	}
 }
