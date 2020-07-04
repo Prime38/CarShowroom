@@ -73,7 +73,7 @@ class Vehicle{
 		return uid;
 	}
 	
-	private static String getSHA(String input) throws NoSuchAlgorithmException {  
+	private static String getSHA(String input) throws NoSuchAlgorithmException {  // return hash of a string
         
         MessageDigest md = MessageDigest.getInstance("SHA-256");  
         byte[] hash= md.digest(input.getBytes(StandardCharsets.UTF_8)); 
@@ -84,8 +84,5 @@ class Vehicle{
         }
         return hexString.toString();
     } 
-    
-	
-
 
 }
