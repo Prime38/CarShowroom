@@ -9,6 +9,7 @@ public class HeavyVehicle extends Vehicle{
 		this.weight = weight;
 	}
 	public HeavyVehicle(String model,int enginepower, int tireSize,int weight) {
+		this.vehicleType="HEAVY";
 		this.model=model;
 		this.enginePower=enginepower;
 		this.tireSize=tireSize;

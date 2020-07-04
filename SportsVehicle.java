@@ -10,6 +10,7 @@ class SportsVehicle extends Vehicle{
 	}
 	
 	public SportsVehicle(String model,int enginepower, int tireSize,int turbo) {
+		this.vehicleType="SPORTS";
 		this.model=model;
 		this.enginePower=enginepower;
 		this.tireSize=tireSize;

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Showroom{
@@ -8,6 +9,8 @@ public class Showroom{
 	
 	public static void main(String[] args) {
 		print("\t WELCOME to the Vehicle Showroom \n You can \n");
+		while(true) {
+
 		print("\t1.Add vehicles\n"
 				+ "\t2.Remove vehicle\n"
 				+ "\t3.See list of vehicles with details\n");
@@ -25,9 +28,28 @@ public class Showroom{
 		default:
 			break;
 		}
+		}
 	}
 	static void showVehicleList() {
-		
+		for (Vehicle vehicle : vehicleList) {
+			print(vehicle.vehicleType+" vehicle\n"
+				+ "\tModel: "+vehicle.model+"\n"
+				+ "\tEngineType: "+vehicle.engineType+"\n"
+				+ "\tEnginePower: "+vehicle.enginePower+"\n"
+				+ "\tTireSeize: "+vehicle.tireSize
+				);
+			if(vehicle.vehicleType.equals("SPORTS")){
+				SportsVehicle sportsVehicle=(SportsVehicle)vehicle;
+				print("\tTurbo:"+sportsVehicle.turbo+"\n");
+			}
+			if(vehicle.vehicleType.equals("Heavy")){
+				HeavyVehicle sportsVehicle=(HeavyVehicle)vehicle;
+				print("\tWeight:"+sportsVehicle.weight+"n");
+			}
+			
+		}
+
+
 	}
 	static void addVehicle(){
 		print("\t\tWhich type of vehicle you want to add\n");
@@ -78,7 +100,7 @@ public class Showroom{
 		int enginePower=sc.nextInt();
 		print("Tire Size: ");
 		int tireSize=sc.nextInt();
-		Vehicle vehicle=new NormalVehicle(model,engineType,enginePower,tireSize);
+		NormalVehicle vehicle=new NormalVehicle(model,engineType,enginePower,tireSize);
 		return vehicle;
 	}
 	static Vehicle addSportsVehicle() {
@@ -90,7 +112,7 @@ public class Showroom{
 		int tireSize=sc.nextInt();
 		print("Turbo: ");
 		int turbo=sc.nextInt();
-		Vehicle vehicle=new SportsVehicle(model,enginePower,tireSize,turbo);
+		SportsVehicle vehicle=new SportsVehicle(model,enginePower,tireSize,turbo);
 		return vehicle;
 		
 	}
@@ -103,10 +125,11 @@ public class Showroom{
 		int tireSize=sc.nextInt();
 		print("Weght: ");
 		int weight=sc.nextInt();
-		Vehicle vehicle=new SportsVehicle(model,enginePower,tireSize,weight);
+		HeavyVehicle vehicle=new HeavyVehicle(model,enginePower,tireSize,weight);
 		return vehicle;
 		
 	}
+	
 	static void removeVehicle() {
 		
 	}
@@ -114,3 +137,11 @@ public class Showroom{
 		System.out.println(o);
 	}
 }
+/*
+1
+1
+BMW
+1
+2400
+50
+*/

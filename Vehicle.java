@@ -2,6 +2,7 @@ enum EngineType{
     OIL,GAS,DIESEl
 }
 class Vehicle{
+	String vehicleType;
     String model;
     EngineType engineType;
     int enginePower;
