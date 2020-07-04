@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class Showroom{
@@ -38,18 +37,13 @@ public class Showroom{
 				+ "\tEnginePower: "+vehicle.enginePower+"\n"
 				+ "\tTireSeize: "+vehicle.tireSize
 				);
-			if(vehicle.vehicleType.equals("SPORTS")){
-				SportsVehicle sportsVehicle=(SportsVehicle)vehicle;
-				print("\tTurbo:"+sportsVehicle.turbo+"\n");
+			if(vehicle instanceof SportsVehicle){
+				print("\tTurbo:"+((SportsVehicle) vehicle).getTurbo()+"\n");
 			}
-			if(vehicle.vehicleType.equals("Heavy")){
-				HeavyVehicle sportsVehicle=(HeavyVehicle)vehicle;
-				print("\tWeight:"+sportsVehicle.weight+"n");
-			}
-			
+			if(vehicle instanceof HeavyVehicle){
+				print("\tWeight:"+((HeavyVehicle)vehicle).getWeight()+"\n");
+			}	
 		}
-
-
 	}
 	static void addVehicle(){
 		print("\t\tWhich type of vehicle you want to add\n");
